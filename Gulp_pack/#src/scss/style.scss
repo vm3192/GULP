@@ -1,0 +1,46 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+//адаптивный шрифт
+@mixin adaptive-font($pcSize, $mobSize) {
+	$addSize: $pcSize - $mobSize;
+	$mw: $mw - 320;
+	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$mw}));
+}
+
+//подключение шрифтов
+//&display=swap          - позволяет шрифтам быстрее загружаться (можно всегда добавлять, увеличивает скорость загрузки страницы)
+//&subset=cyrillic-ext   - добавляет кириллицу
+@import "fonts";
+
+@import "vars";
+@import "null";
+@import "media";
+@import "duplicate_elements";
+
+.container {
+	max-width: $mw + px;
+	margin: 0 auto;
+}//container
+
+
+.wrapper {
+	overflow: hidden;
+	width: 100%;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}//wrapper
+
+
+.main{
+	flex: 1 1 auto; 
+}//main
+

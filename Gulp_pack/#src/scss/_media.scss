@@ -1,0 +1,31 @@
+//1 $mw + 12
+@media (max-width: $md1+px) {
+	.container {
+		max-width: 1140px;
+	}
+}
+//2 1199
+@media (max-width: $md2+px) {
+	.container {
+		max-width: 960px;
+	}
+}
+//3 991
+@media (max-width: $md3+px) {
+	.container {
+		max-width: 720px;
+	}
+}
+//4 768
+@media (max-width: $md4+px) {
+	.container {
+		max-width: 540px;
+	}
+}
+//5 576
+@media (max-width: $md5+px) {
+	.container {
+		max-width: 100%;
+		padding: 0 15px;
+	}
+}
